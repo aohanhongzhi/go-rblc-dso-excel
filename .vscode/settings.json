@@ -1,0 +1,4 @@
+{
+    "jetbrainsKeymap.promptV3Features": true,
+    "go.testFlags": ["-v"]
+}

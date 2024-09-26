@@ -1,2 +1,4 @@
 go.sum
 *.xlsx
+*.xlsm
+*.zip
