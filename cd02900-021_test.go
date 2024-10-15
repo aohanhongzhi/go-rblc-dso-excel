@@ -40,8 +40,28 @@ func TestCD02900021(t *testing.T) {
 	faqMap[`Is Bosch Single Sign-On used for the authentication of Bosch employees and employees of external service providers?`] = `No, our system is designed for general consumer users and does not involve Bosch internal users. Therefore, it does not integrate with Bosch Single Sign-On (SSO) for authentication of Bosch employees or employees of external service providers.`
 	faqMap[`Does a password management concept exist and is it implemented?`] = `Yes, a password management concept exists and is implemented according to Bosch internal requirements. It mandates the use of uppercase and lowercase letters, numbers, and special characters. Additionally, passwords expire every three months, and the use of previous passwords is prohibited.`
 	faqMap[`Have passwords for build in and standard accounts been changed and are they managed according to the regulations?`] = `Yes, a password management concept exists and is implemented according to Bosch internal requirements. It mandates the use of uppercase and lowercase letters, numbers, and special characters. Additionally, passwords expire every three months, and the use of previous passwords is prohibited.`
+	faqMap[`Has the operator disclosed for which security classes the IT system can be used?`] = `Certainly, all our systems are involved in DSPiE, and they have been assessed for security levels.`
+	faqMap[`Is there a central asset management database where the IT systems and the respective operators are documented?`] = `bosch leanix`
+	faqMap[`Does the authorization management concept include the handling of privileged or administrative accounts?`] = `We have created a document for access control management.`
+	faqMap[`Are the C/IDS requirements for secure authentication fulfilled?`] = `Yes, our Azure server management system is integrated with Bosch's Single Sign-On (SSO). Additionally, all servers are configured for key-based authentication to ensure security`
+	faqMap[`Are the used keys (e.g., pre-shared keys) and certificates changed on a regular basis?`] = `We change our keys every six months.`
+	faqMap[`Is there a change management process for managing changes to the IT system?`] = `Yes, we manage changes through email communication or handover processes`
+	faqMap[`Is the cloud customer aware of the critical operation procedures (e.g. deletion of virtual servers) and are these functions documented (e.g. in an operational concept)?`] = `Yes, we have documented the purpose of these applications using notes in the Azure management portal.`
+	faqMap[`Does the solution for authentication the Bosch customer's context fulfill the requirements of C/IDS?`] = `Yes, we have designed the password system strictly according to Bosch's requirements, which includes a combination of over 12 characters with uppercase and lowercase letters, numbers, and special characters. We use a high-strength encryption algorithm, AES-256.`
+	faqMap[`Is the interactive access to the IT system disabled or terminated in case of user absence?`] = `Yes, we disable login and access for users who have left or are no longer using the system.`
+	faqMap[`Are there adequate data backup and recovery concepts for the IT system?`] = `We have daily Microsoft backups, and in addition, we use automated scripts to back up all data, which is then stored on Bosch cloud storage.`
+	faqMap[`Have the security requirements been agreed with the external service providers?`] = `NDA`
+	faqMap[`Are security requirements defined in external supplier agreements (e.g. contracts) and agreed by the supplier?`] = `NDA`
+	faqMap[`Was it checked whether a penetration test is necessary and, if so, was it carried out?`] = `NDA`
+	faqMap[`Was it checked whether a penetration test is necessary and, if so, was it carried out?`] = `The PO will send an email to the colleague responsible for security in the department to conduct a relevant assessment. If a penetration test is deemed necessary, it will be carried out.`
+	faqMap[`Is the protection against malware (virus protection) according to C/IDS specifications ensured or is the system isolated via network separation measures (e.g. ITM specifications)?`] = `Yes, we have implemented according to the C/IDS specifications. Firstly, we have disabled ping to mitigate ping attacks. Additionally, we have enhanced logging and auditing of visitor IP addresses. Since our business operations are primarily within China, we have blocked all requests from foreign IPs, effectively preventing DDoS attacks.`
+	faqMap[`Is a central Identity Management system (IdM) provided by CI used for the compliant management of access rights?`] = `This is not an internal Bosch system; it is intended for external users. Although it is not integrated with IdM, we do have relevant documentation that adheres to the requirements of Bosch's DSO department to record user permissions.`
 
-	OperatingManualV2, err := ListDir("/home/eric/Project/Go/go-rblc-dso-excel/2024-CD-02900-021", "xlsm")
+	faqMap[`Is there a central management database where the interfaces of the IT system are documented?`] = `Yes, we have interface development documentation for all our projects, which includes all the interfaces.`
+	faqMap[`Is the test data being used protected (according to its security class) and deleted from the development or test systems at the end of the tests?`] = `Yes, we will delete all test data at the end of the tests.`
+	faqMap[``] = ``
+
+	OperatingManualV2, err := ListDir("/home/eric/Project/Go/go-rblc-dso-excel/2024-Operating_Manual/1", "xlsm")
 	if err != nil {
 		panic(err)
 	}
