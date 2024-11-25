@@ -100,18 +100,36 @@ func TestCD02900021(t *testing.T) {
 			}
 			fmt.Printf("%+v", row)
 			number := strconv.Itoa(index)
-			cell, err := f.GetCellValue(sheet, "F"+number)
-			if err != nil {
-				fmt.Println(err)
+			Icell, err1 := f.GetCellValue(sheet, "I"+number)
+
+			if err1 != nil {
+				fmt.Println(err1)
 				continue
 			}
 
-			value, ok := faqMap[cell]
-			if ok {
-				f.SetCellStr(sheet, "I"+number, value)
+			if len(Icell) <= 0 {
+
+				cell, err := f.GetCellValue(sheet, "F"+number)
+				if err != nil {
+					fmt.Println(err)
+					continue
+				}
+
+				if len(cell) > 0 {
+					value, ok := faqMap[cell]
+					if ok {
+						f.SetCellStr(sheet, "I"+number, value)
+					} else {
+						fmt.Printf("\n%v.这个问题还没有答案【%v】 %v\n", index, cell, row)
+					}
+				} else {
+					fmt.Printf(" %v 没有问题", "F"+number)
+				}
+
 			} else {
-				fmt.Printf("\n%v.这个问题还没有答案【%v】 %v\n", index, cell, row)
+				fmt.Printf(" %v 已经填写了", "I"+number)
 			}
+
 		}
 
 		if false {
